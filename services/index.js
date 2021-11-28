@@ -4,33 +4,35 @@ const graphqlAPI = process.env.NEXT_PUBLIC_MATBLOGS_ENDPOINT;
 
 export const getPosts = async () => {
     const query = gql`
-        query MyQuery {
-            postsConnection {
-            edges {
-                node {
-                author {
-                    bio
-                    name
-                    id
-                    photo {
-                    url
-                    }
+    query MyQuery {
+        postsConnection {
+          edges {
+            node {
+              author {
+                bio
+                name
+                id
+                photo {
+                  url
                 }
-                createdAt
-                excerpt
+              }
+              createdAt
+              excerpt
+              slug
+              title
+              categories {
+                name
                 slug
-                title
-                featuredImage {
-                    url
-                }
-                categories {
-                    name
-                    slug
-                }
-                }
+              }
+              featuredImage {
+                url
+                createdAt
+                fileName
+              }
             }
-            }
+          }
         }
+      }      
     `
     const result = await request(graphqlAPI, query);
 
