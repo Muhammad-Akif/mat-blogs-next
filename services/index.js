@@ -1,9 +1,9 @@
 import { request, gql } from 'graphql-request';
 
-const graphqlAPI = process.env.NEXT_PUBLIC_MATBLOGS_ENDPOINT; 
+const graphqlAPI = process.env.NEXT_PUBLIC_MATBLOGS_ENDPOINT;
 
 export const getPosts = async () => {
-    const query = gql`
+  const query = gql`
     query MyQuery {
         postsConnection {
           edges {
@@ -34,7 +34,28 @@ export const getPosts = async () => {
         }
       }      
     `
-    const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query);
 
-    return result.postsConnection.edges;
+  return result.postsConnection.edges;
+}
+
+export const getRecentPosts = async () => {
+  const query = gql`
+    query GetPostDetails() {
+      post(
+        orderBy: createdAt_ASC
+        last:3
+      ){
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
+      }
+    }
+  `
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
 }
