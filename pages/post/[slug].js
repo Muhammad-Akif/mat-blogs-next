@@ -24,3 +24,10 @@ const PostDetails = () => {
 }
 
 export default PostDetails;
+
+export async function getStaticProps({ slug }) {
+    const posts = (await getPosts()) || []
+    return {
+      props: { posts }
+    }
+  }
