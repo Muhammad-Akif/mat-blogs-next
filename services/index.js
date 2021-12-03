@@ -130,3 +130,4 @@ export const getCategories = async () => {
 
   return result.categories;
 }
+
