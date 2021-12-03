@@ -1,5 +1,6 @@
 import React from 'react'
 import { getPosts, getPostDetails } from '../../services'
+import { AdjacentPosts } from '../../sections'
 import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm } from '../../components'
 
 const PostDetails = ({ post }) => {
@@ -9,6 +10,7 @@ const PostDetails = ({ post }) => {
                 <div className="lg:col-span-8 col-span-1">
                     <PostDetail post={post}/>
                     <Author author={post.author}/>
+                    <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
                     <CommentsForm slug={post.slug}/>
                     <Comments slug={post.slug}/>
                 </div>
