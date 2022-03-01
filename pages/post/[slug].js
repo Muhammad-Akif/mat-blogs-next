@@ -10,13 +10,13 @@ const PostDetails = ({ post }) => {
                 <div className="lg:col-span-8 col-span-1">
                     <PostDetail post={post}/>
                     <Author author={post?.author}/>
-                    <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
-                    <CommentsForm slug={post.slug}/>
-                    <Comments slug={post.slug}/>
+                    <AdjacentPosts slug={post?.slug} createdAt={post?.createdAt} />
+                    <CommentsForm slug={post?.slug}/>
+                    <Comments slug={post?.slug}/>
                 </div>
                 <div className="lg:col-span-4 col-span-1">
                     <div className="lg:sticky relative top-8">
-                        <PostWidget slug={post.slug} categories={post.categories.map(( category ) => category.slug)}/>
+                        <PostWidget slug={post?.slug} categories={post?.categories.map(( category ) => category.slug)}/>
                         <Categories />
                     </div>
                 </div>
@@ -27,17 +27,17 @@ const PostDetails = ({ post }) => {
 
 export default PostDetails;
 
-export async function getStaticProps({ params }) {
-    const data = await getPostDetails(params?.slug);
-    return {
-      props: { post: data }
-    }
-}
-
 export async function getStaticPaths() {
     const posts = await getPosts();
     return {
         paths: posts?.map(({ node: { slug }}) => ({ params: { slug}})),
         fallback: true
+    }
+}
+
+export async function getStaticProps({ params }) {
+    const data = await getPostDetails(params?.slug);
+    return {
+      props: { post: data }
     }
 }
