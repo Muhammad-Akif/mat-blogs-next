@@ -9,7 +9,7 @@ const PostDetails = ({ post }) => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-8 col-span-1">
                     <PostDetail post={post}/>
-                    <Author author={post.author}/>
+                    <Author author={post?.author}/>
                     <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
                     <CommentsForm slug={post.slug}/>
                     <Comments slug={post.slug}/>
