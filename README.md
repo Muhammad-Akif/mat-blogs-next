@@ -1,5 +1,7 @@
 # Blog App
 
+[![blog-app.png](https://i.postimg.cc/SxH5zpS2/blog-app.png)](https://postimg.cc/w1cFSZsg)
+
 # Introduction
   Blogging app (Live) where people read articles related to multiple top on different categories, comment on it, harsh comments will be filtered by admin,and more ...
 
