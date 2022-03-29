@@ -13,7 +13,7 @@ const Header = () => {
             <div className="border-b w-full inline-block border-blue-400 py-8">
                 <div className="md:float-left">
                     <Link href="/">
-                        <span className="cursor-pointer font-bold text-4xl text-white">
+                        <span className="cursor-pointer font-bold text-center text-4xl text-white">
                             MatBlog
                         </span>
                     </Link>

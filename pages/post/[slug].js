@@ -6,7 +6,7 @@ import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm } fr
 const PostDetails = ({ post }) => {
     console.log("data ==>", post)
     return (
-        <div className="container mx-auto px-10 mb-8">
+        <div className="container mx-auto px-2 md:px-10 mb-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-8 col-span-1">
                     <PostDetail post={post}/>
@@ -16,7 +16,7 @@ const PostDetails = ({ post }) => {
                     <Comments slug={post?.slug}/>
                 </div>
                 <div className="lg:col-span-4 col-span-1">
-                    <div className="lg:sticky relative top-8">
+                    <div className="lg:sticky relative -top-10 md:top-8">
                         <PostWidget slug={post?.slug} categories={post?.categories.map(( category ) => category.slug)}/>
                         <Categories />
                     </div>
